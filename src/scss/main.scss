@@ -1,0 +1,131 @@
+/*==================== RESET STYLES ====================*/
+@import 'import/reset.scss';
+/*==================== RESET STYLES ====================*/
+
+/*==================== FONTS ====================*/
+@import 'import/fonts.scss';
+
+// @import url(''); // &subset=cyrillic-ext
+
+// @font-face {
+//   font-family: 'Train One';
+//   src: url('../../fonts') format('woff2'), url('../../fonts') format('woff');
+//   font-weight: 400;
+//   font-style: normal;
+//   font-display: swap;
+// }
+/*==================== FONTS ====================*/
+
+/*==================== VARIABLES ====================*/
+$maxWidthLayout: 1440;
+$maxWidthContainer: 1200;
+$robotoFont: 'Roboto', sans-serif;
+$whiteColor: #fff;
+$blackColor: #000;
+/*==================== VARIABLES ====================*/
+
+/*==================== MIXINS ====================*/
+// responsive value
+@mixin respValue($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+  @if $type==1 {
+    //Только если меньше контейнера
+    #{$property}: $startSize + px;
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+    }
+  } @else if $type==2 {
+    //Только если больше контейнера
+    #{$property}: $startSize + px;
+    @media (min-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthLayout - 320}));
+    }
+  } @else {
+    //Всегда
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthLayout - 320}));
+  }
+}
+// snippet (rv)
+// responsive value
+/*==================== MIXINS ====================*/
+
+/*==================== BASIC PARAMETERS ====================*/
+body {
+  font-family: $robotoFont;
+  background: $whiteColor;
+  color: $blackColor;
+
+  @media (max-width: 768px) {
+    &.lock {
+      overflow: hidden;
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+// .wrapper {
+// 	min-height: 100vh;
+// 	display: grid;
+// 	grid-template:
+// 		[start] 'header' minmax(70px, auto) [row2]
+// 		[row2] 'main' 1fr [row3]
+// 		[row3] 'footer' minmax(70px, auto) [row-end] / 1fr;
+// }
+
+.page {
+  flex: 1 1 auto;
+
+  &__block-name,
+  &__block-name {
+    &:not(:last-child) {
+      @include respValue('margin-bottom', 90, 60, 1);
+    }
+  }
+
+  &:not(:last-child) {
+    @include respValue('margin-bottom', 120, 90, 1);
+  }
+}
+/*==================== BASIC PARAMETERS ====================*/
+
+/*==================== REPEAT BLOCK ====================*/
+
+// container
+// .container {
+//   width: 100%;
+//   max-width: $maxWidthContainer + px;
+//   padding: 0 15px;
+//   margin: 0 auto;
+// }
+
+[class*='__container'] {
+  width: 100%;
+  max-width: $maxWidthContainer + px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+// container
+
+// responsive bg img
+@import 'import/ibg.scss';
+
+.ibg {
+  position: relative;
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+// responsive bg img
+
+/*==================== REPEAT BLOCK ====================*/
