@@ -187,11 +187,11 @@ body {
 }
 
 /*==================== REPEAT BLOCK ====================*/
+/*==================== PARALLAX MATTHEW ====================*/
 .wrapper-parallax-matthew {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   background: #000;
   opacity: 0;
-  overflow: hidden;
   transition: all 1s ease;
 }
 .wrapper-parallax-matthew.active {
@@ -211,7 +211,7 @@ body {
   transition: all 0.8s ease 2.4s;
 }
 
-.body {
+.parallax-matthew-body {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -428,10 +428,80 @@ body {
     transform: translate3d(-15%, 0, 0) rotateZ(-10deg);
   }
 }
-.s {
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid green;
-  border-bottom: 100px solid orange;
+/*==================== WAVE BUTTON ====================*/
+.wave-button-body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background: #000;
+}
+
+.wave-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 60px;
+  border-radius: 0 0 10px 10px;
+  transition: all 0.7s ease;
+  overflow: hidden;
+}
+.wave-button__text {
+  position: relative;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  color: #fff;
+  z-index: 3;
+}
+.wave-button__waves {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  top: 0;
+  left: 0;
+  background: #4973ff;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+  transition: all 0.7s ease;
+}
+.wave-button__waves::before, .wave-button__waves::after {
+  content: "";
+  position: absolute;
+  width: 250%;
+  height: 250%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -96%);
+}
+.wave-button__waves::before {
+  background: #000;
+  border-radius: 48%;
+  animation: waves 5s infinite linear;
+}
+.wave-button__waves::after {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 44%;
+  animation: waves 10s infinite linear;
+}
+.wave-button:hover {
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(73, 115, 255, 0.6);
+  transition: all 0.7s ease 0.2s;
+}
+.wave-button:hover .wave-button__waves {
+  top: -50px;
+}
+
+@keyframes waves {
+  0% {
+    transform: translate(-50%, -96%);
+  }
+  100% {
+    transform: translate(-50%, -96%) rotate(360deg);
+  }
 }
