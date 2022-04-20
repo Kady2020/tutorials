@@ -1,0 +1,88 @@
+.wrapper-pm {
+}
+
+.page-pm {
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.parallax-mountains {
+  position: relative;
+  height: 100%;
+
+  &__mountain {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    &_1 {
+      background: url('@img/parallax-mountains/mountains/01.png') 0 0 / cover no-repeat;
+    }
+
+    &_2 {
+      background: url('@img/parallax-mountains/mountains/02.png') bottom right / 45% no-repeat;
+      z-index: 1;
+    }
+
+    &_3 {
+      background: url('@img/parallax-mountains/mountains/03.png') bottom left / 100% no-repeat;
+      z-index: 1;
+    }
+  }
+
+  &__fog {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url('@img/parallax-mountains/fog.png') bottom center / 100% no-repeat;
+    z-index: 2;
+  }
+}
+
+.content-pm {
+  position: relative;
+
+  &__header {
+    display: grid;
+    gap: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 20px;
+
+    &:not(:last-child) {
+      margin: 0 0 20px 0;
+    }
+  }
+
+  &__title {
+    font-size: 100px;
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 1.2;
+    text-align: justify;
+    background: rgb(255, 255, 255, 0.5);
+    padding: 10px;
+
+    p {
+      &:not(:last-child) {
+        margin: 0 0 20px 0;
+      }
+    }
+  }
+}
