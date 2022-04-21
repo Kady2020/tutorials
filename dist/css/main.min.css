@@ -111,6 +111,10 @@ h6 {
 /*==================== MIXINS ====================*/
 /*==================== MIXINS ====================*/
 /*==================== BASIC PARAMETERS ====================*/
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background: #fff;
@@ -704,4 +708,90 @@ body {
 }
 .content-pm__text p:not(:last-child) {
   margin: 0 0 20px 0;
+}
+
+/*==================== GOING BEYOND ====================*/
+.going-beyond {
+  min-height: 100vh;
+}
+@media (min-width: 767.98px) {
+  .going-beyond {
+    display: flex;
+    gap: 15px;
+  }
+}
+.going-beyond__content {
+  flex: 0 0 100%;
+  display: flex;
+}
+.going-beyond__container {
+  display: flex;
+  align-items: center;
+  background: #333;
+}
+.going-beyond__body {
+  line-height: 1.2;
+  padding: 15px 0;
+  color: #fff;
+}
+.going-beyond__body > *:not(:last-child) {
+  margin: 0 0 15px 0;
+}
+@media (min-width: 767.98px) {
+  .going-beyond__body {
+    width: 40%;
+  }
+}
+.going-beyond__title {
+  font-size: 60px;
+  text-transform: uppercase;
+}
+@media (max-width: 1200px) {
+  .going-beyond__title {
+    font-size: calc(30px + 30 * ((100vw - 320px) / 880));
+  }
+}
+.going-beyond__subtitle {
+  font-size: 50px;
+  text-transform: uppercase;
+}
+@media (max-width: 1200px) {
+  .going-beyond__subtitle {
+    font-size: calc(25px + 25 * ((100vw - 320px) / 880));
+  }
+}
+.going-beyond__text {
+  font-size: 20px;
+}
+@media (max-width: 1200px) {
+  .going-beyond__text {
+    font-size: calc(16px + 4 * ((100vw - 320px) / 880));
+  }
+}
+.going-beyond__image {
+  position: relative;
+}
+.going-beyond__image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+@media (min-width: 767.98px) {
+  .going-beyond__image {
+    transform: translateX(-100%);
+    flex: 0 0 calc((100vw - 30px) * 0.6 + 15px);
+  }
+}
+@media (min-width: 1200px) {
+  .going-beyond__image {
+    flex: 0 0 calc(100vw - ((100vw - 1200px) / 2 + 468px + 15px));
+  }
+}
+@media (max-width: 767.98px) {
+  .going-beyond__image {
+    padding: 0 0 70% 0;
+  }
 }

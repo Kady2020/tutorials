@@ -50,6 +50,10 @@ $blackColor: #000;
 /*==================== MIXINS ====================*/
 
 /*==================== BASIC PARAMETERS ====================*/
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: $robotoFont;
   background: $whiteColor;
@@ -144,3 +148,6 @@ body {
 
 /*==================== PARALLAX MOUNTAINS ====================*/
 @import 'import/parallax-mountains.scss';
+
+/*==================== GOING BEYOND ====================*/
+@import 'import/going-beyond.scss';
