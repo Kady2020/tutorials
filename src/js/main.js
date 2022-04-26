@@ -8,3 +8,4 @@ import "./modules/parallax-matthew.js";
 import "./modules/checkbox.js";
 import "./modules/radio.js";
 import "./modules/parallax-mountains.js";
+import "./modules/animscroll.js";
