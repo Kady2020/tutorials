@@ -20,6 +20,65 @@
   <div class="warapper">
 
     <div class="sending-data">
+      <form action="#" id="form" class="sending-data__body">
+        <h2 class="sending-data__title">Sending data by mail</h2>
+        <div class="sending-data__item">
+          <label for="formName" class="sending-data__label">Name*:</label>
+          <input id="formName" class="sending-data__input _req" type="text" name="name">
+        </div>
+        <div class="sending-data__item">
+          <label for="formEmail" class="sending-data__label">E-mail*:</label>
+          <input id="formEmail" class="sending-data__input _reg _email" type="text" name="email">
+        </div>
+        <div class="sending-data__item">
+          <div class="sending-data__label">Left handed or right handed?</div>
+          <div class="options">
+            <div class="options__item">
+              <input id="formRightHanded" class="options__input" type="radio" checked value="right" name="hand">
+              <label for="formRightHanded" class="options__label radio-all"><span>Right hand</span></label>
+            </div>
+            <div class="options__item">
+              <input id="formLeftHanded" class="options__input" type="radio" value="left" name="hand">
+              <label for="formLeftHanded" class="options__label radio-all"><span>Left hand</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="sending-data__item">
+          <label for="formMessage" class="sending-data__label">Message</label>
+          <textarea id="formMessage" class="sending-data__input" name="message"></textarea>
+        </div>
+        <div class="sending-data__item form__item">
+          <div class="sending-data__label form__label">Age</div>
+          <select class="form__select" name="age">
+            <option value="from 18 to 25">from 18 to 25</option>
+            <option value="from 25 to 45">from 25 to 45</option>
+            <option value="from 45">from 45</option>
+          </select>
+        </div>
+        <div class="sending-data__item">
+          <div class="sending-data__label">Attach photo</div>
+          <div class="file">
+            <div class="file__item">
+              <input id="formImage" class="file__input" type="file" name="image" accept=".jpg, .png, .gif">
+              <button class="file__button"><span>Select</span></button>
+            </div>
+            <div class="file__preview"></div>
+          </div>
+        </div>
+        <div class="sending-data__item">
+          <div class="checkbox-fls">
+            <input id="formAgreement" class="checkbox-fls__input _req" checked type="checkbox" name="agreement">
+            <label for="formAgreement" class="checkbox-fls__label">
+              <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit error repellat rem, ullam nisi
+                repellendus architecto pariatur quibusdam saepe debitis nesciunt molestiae iste cupiditate et voluptas
+                vitae ratione impedit <a target="_blank"
+                  href="https://gdpr-info.eu/issues/consent/#:~:text=Processing%20personal%20data%20is%20generally,Data%20Protection%20Regulation%20(GDPR).">consectetur</a>
+                adipisicing elit!</span>
+            </label>
+          </div>
+        </div>
+        <button class="sending-data__button" type="submit">Send</button>
+      </form>
     </div>
 
   </div>
