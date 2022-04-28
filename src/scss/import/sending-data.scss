@@ -6,8 +6,27 @@
   color: $whiteColor;
 
   &__body {
+    position: relative;
     max-width: 550px;
     margin: 0 auto;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(51, 51, 51, 0.7) url('@img/sending-data/loading.gif') center / 50px no-repeat;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s linear;
+    }
+
+    &._sending::after {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   &__title {
@@ -53,6 +72,10 @@
       box-shadow: 0 0 8px 0 #7a956b;
       transition: all 0.2s linear;
     }
+
+    &._error {
+      box-shadow: 0 0 8px 0 #f00;
+    }
   }
 
   &__button {
@@ -61,7 +84,6 @@
     align-items: center;
     width: 100%;
     min-height: 40px;
-    // font-weight: 700;
     font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -153,48 +175,33 @@
     left: 0;
     opacity: 0;
     font-size: 0;
+    z-index: 3;
     cursor: pointer;
   }
 
   &__button {
-    position: relative;
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    max-width: 140px;
     min-height: 40px;
-    padding: 0 20px;
-    border-radius: 6px;
-    background: $whiteColor;
-    color: $blackColor;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #7a956b;
+    box-shadow: 0 3px 0 0 #242c20;
+    border-radius: 20px;
+    color: $whiteColor;
+    transform: translateY(0);
     transition: all 0.2s linear;
-    cursor: pointer;
-
-    span {
-      position: relative;
-      z-index: 3;
-      cursor: pointer;
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: 96%;
-      height: 92%;
-      top: 50%;
-      left: 50%;
-      border-radius: 6px;
-      background: #7a956b;
-      transform: translate(-50%, -50%) scale(0);
-      transition: all 0.2s linear;
-      cursor: pointer;
-    }
 
     &:hover {
-      color: $whiteColor;
+      background: #58724b;
+    }
 
-      &::before {
-        transform: translate(-50%, -50%) scale(1);
-      }
+    &:active {
+      transform: translateY(1.2px);
+      box-shadow: 0 2px 0 0 #242c20;
     }
   }
 
@@ -210,6 +217,12 @@
 }
 
 .checkbox-fls {
+  &._error {
+    .checkbox-fls__label::before {
+      box-shadow: 0 0 8px 0 #f00;
+    }
+  }
+
   &__input {
     display: none;
 

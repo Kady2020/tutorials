@@ -25,11 +25,11 @@ document.addEventListener('DOMContentLoaded', function () {
         form.reset();
         form.classList.remove('_sending');
       } else {
-        alert("Ошибка");
+        alert("Error");
         form.classList.remove('_sending');
       }
     } else {
-      alert('Заполните обязательные поля');
+      alert('Fill in required fields');
     }
 
   }
@@ -86,22 +86,22 @@ document.addEventListener('DOMContentLoaded', function () {
   function uploadFile(file) {
     // провераяем тип файла
     if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
-      alert('Разрешены только изображения.');
+      alert('Only images are allowed');
       formImage.value = '';
       return;
     }
     // проверим размер файла (<2 Мб)
     if (file.size > 2 * 1024 * 1024) {
-      alert('Файл должен быть менее 2 МБ.');
+      alert('The file should be less than 2 Mb');
       return;
     }
 
     var reader = new FileReader();
     reader.onload = function (e) {
-      formPreview.innerHTML = `<img src="${e.target.result}" alt="Фото">`;
+      formPreview.innerHTML = `<img src="${e.target.result}" alt="Photo">`;
     };
     reader.onerror = function (e) {
-      alert('Ошибка');
+      alert('Error');
     };
     reader.readAsDataURL(file);
   }

@@ -980,8 +980,25 @@ body {
   color: #fff;
 }
 .sending-data__body {
+  position: relative;
   max-width: 550px;
   margin: 0 auto;
+}
+.sending-data__body::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(51, 51, 51, 0.7) url("../img/sending-data/loading.gif") center/50px no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s linear;
+}
+.sending-data__body._sending::after {
+  opacity: 1;
+  visibility: visible;
 }
 .sending-data__title {
   font-size: 40px;
@@ -1022,6 +1039,9 @@ body {
 .sending-data__input:focus {
   box-shadow: 0 0 8px 0 #7a956b;
   transition: all 0.2s linear;
+}
+.sending-data__input._error {
+  box-shadow: 0 0 8px 0 #f00;
 }
 .sending-data__button {
   display: flex;
@@ -1105,44 +1125,31 @@ body {
   left: 0;
   opacity: 0;
   font-size: 0;
-  cursor: pointer;
-}
-.file__button {
-  position: relative;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 40px;
-  padding: 0 20px;
-  border-radius: 6px;
-  background: #fff;
-  color: #000;
-  transition: all 0.2s linear;
-  cursor: pointer;
-}
-.file__button span {
-  position: relative;
   z-index: 3;
   cursor: pointer;
 }
-.file__button::before {
-  content: "";
-  position: absolute;
-  width: 96%;
-  height: 92%;
-  top: 50%;
-  left: 50%;
-  border-radius: 6px;
+.file__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 140px;
+  min-height: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   background: #7a956b;
-  transform: translate(-50%, -50%) scale(0);
+  box-shadow: 0 3px 0 0 #242c20;
+  border-radius: 20px;
+  color: #fff;
+  transform: translateY(0);
   transition: all 0.2s linear;
-  cursor: pointer;
 }
 .file__button:hover {
-  color: #fff;
+  background: #58724b;
 }
-.file__button:hover::before {
-  transform: translate(-50%, -50%) scale(1);
+.file__button:active {
+  transform: translateY(1.2px);
+  box-shadow: 0 2px 0 0 #242c20;
 }
 .file__preview {
   display: inline-block;
@@ -1153,6 +1160,9 @@ body {
   max-width: 100%;
 }
 
+.checkbox-fls._error .checkbox-fls__label::before {
+  box-shadow: 0 0 8px 0 #f00;
+}
 .checkbox-fls__input {
   display: none;
 }
