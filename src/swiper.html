@@ -1,0 +1,75 @@
+<html lang="en">
+
+@@include('html/head.html', {
+"title":"Swiper"
+})
+
+<body>
+  <!-- WRAPPER -->
+  <div class="warapper">
+
+    <div class="swiper image-slider">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper image-slider__wrapper">
+        <!-- Slides -->
+        <div data-hash="slide-1" class="swiper-slide image-slider__slide">
+          <div class="image-slider__image swiper-zoom-container">
+            <!-- В src желательно добавить маленькое однопиксельное изображение -->
+            <img data-src="@img/swiper/01.jpg" src="" alt="Picture" class="swiper-lazy">
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+        </div>
+
+        <div data-hash="slide-2" class="swiper-slide image-slider__slide">
+          <div class="image-slider__image swiper-zoom-container">
+            <img data-src="@img/swiper/02.jpg" alt="Picture" class="swiper-lazy">
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+        </div>
+
+        <div data-hash="slide-3" class="swiper-slide image-slider__slide">
+          <div class="image-slider__image swiper-zoom-container">
+            <img data-src="@img/swiper/03.jpg" alt="Picture" class="swiper-lazy">
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+        </div>
+
+        <div data-hash="slide-4" class="swiper-slide image-slider__slide">
+          <div class="image-slider__image swiper-zoom-container">
+            <img data-src="@img/swiper/01.jpg" alt="Picture" class="swiper-lazy">
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+        </div>
+
+        <div data-hash="slide-5" class="swiper-slide image-slider__slide">
+          <div class="image-slider__image swiper-zoom-container">
+            <img data-src="@img/swiper/02.jpg" alt="Picture" class="swiper-lazy">
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+        </div>
+
+        <div data-hash="slide-6" class="swiper-slide image-slider__slide">
+          <div class="image-slider__image swiper-zoom-container">
+            <img data-src="@img/swiper/03.jpg" alt="Picture" class="swiper-lazy">
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+        </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+
+  </div>
+
+  <!-- MAIN.JS -->
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>
