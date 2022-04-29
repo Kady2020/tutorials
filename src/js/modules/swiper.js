@@ -6,7 +6,7 @@ import Swiper, {
 
 const swiper = new Swiper('.swiper', {
   modules: [Navigation, Pagination, Scrollbar, Keyboard, HashNavigation,
-    Mousewheel, Autoplay, EffectFade, EffectFlip, EffectCube, EffectCoverflow, Lazy, Zoom, Thumbs],
+    Mousewheel, Autoplay, EffectFade, EffectFlip, EffectCube, EffectCoverflow],
 
   /* ============================== МОДУЛИ ============================== */
   // ========== СТРЕЛКИ ==========
@@ -112,35 +112,35 @@ const swiper = new Swiper('.swiper', {
   // },
 
   // ========== ЛЕНИВАЯ ПОДГРУЗКА ==========
-  // Отключить предзагрузку картинок
-  preloadImages: false,
-  // Lazy Loading (подгрузка картинок)
-  lazy: {
-    // Подгружать на старте переключения слайда
-    loadOnTransitionStart: false,
-    // Подгрузить предыдущую и следующую картинки
-    loadPrevNext: false,
-  },
-  // Слежка за видимыми слайдами
-  watchSlidesProgress: true,
-  // Добавление класса видимым слайдам
-  watchSlidesVisibility: true,
+  // // Отключить предзагрузку картинок
+  // preloadImages: false,
+  // // Lazy Loading (подгрузка картинок)
+  // lazy: {
+  //   // Подгружать на старте переключения слайда
+  //   loadOnTransitionStart: false,
+  //   // Подгрузить предыдущую и следующую картинки
+  //   loadPrevNext: false,
+  // },
+  // // Слежка за видимыми слайдами
+  // watchSlidesProgress: true,
+  // // Добавление класса видимым слайдам
+  // watchSlidesVisibility: true,
 
   // ========== ЗУМ КАРТИНКИ ==========
-  zoom: {
-    // Макимальное увеличение
-    maxRatio: 3,
-    // Минимальное увеличение
-    minRatio: 1,
-  },
+  // zoom: {
+  //   // Макимальное увеличение
+  //   maxRatio: 3,
+  //   // Минимальное увеличение
+  //   minRatio: 1,
+  // },
   // ========== МИНИАТЮРЫ (ПРЕВЬЮ) ==========
-  thumbs: {
-    // Свайпер с мениатюрами и его настройки
-    swiper: {
-      el: '.image-mini-slider',
-      slidesPerView: 5,
-    }
-  },
+  // thumbs: {
+  //   // Свайпер с мениатюрами и его настройки
+  //   swiper: {
+  //     el: '.image-mini-slider',
+  //     slidesPerView: 5,
+  //   }
+  // },
   /* ============================== МОДУЛИ ============================== */
 
   /* ============================== ПАРАМЕТРЫ ============================== */
