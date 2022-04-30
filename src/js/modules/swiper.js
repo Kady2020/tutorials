@@ -6,7 +6,7 @@ import Swiper, {
 
 const swiper = new Swiper('.swiper', {
   modules: [Navigation, Pagination, Scrollbar, Keyboard, HashNavigation,
-    Mousewheel, Autoplay, EffectFade, EffectFlip, EffectCube, EffectCoverflow],
+    Mousewheel, Autoplay, EffectFade, EffectFlip, EffectCube, EffectCoverflow, Lazy, Zoom, Thumbs],
 
   /* ============================== МОДУЛИ ============================== */
   // ========== СТРЕЛКИ ==========
@@ -112,19 +112,19 @@ const swiper = new Swiper('.swiper', {
   // },
 
   // ========== ЛЕНИВАЯ ПОДГРУЗКА ==========
-  // // Отключить предзагрузку картинок
-  // preloadImages: false,
-  // // Lazy Loading (подгрузка картинок)
-  // lazy: {
-  //   // Подгружать на старте переключения слайда
-  //   loadOnTransitionStart: false,
-  //   // Подгрузить предыдущую и следующую картинки
-  //   loadPrevNext: false,
-  // },
-  // // Слежка за видимыми слайдами
-  // watchSlidesProgress: true,
-  // // Добавление класса видимым слайдам
-  // watchSlidesVisibility: true,
+  // Отключить предзагрузку картинок
+  preloadImages: false,
+  // Lazy Loading (подгрузка картинок)
+  lazy: {
+    // Подгружать на старте переключения слайда
+    loadOnTransitionStart: false,
+    // Подгрузить предыдущую и следующую картинки
+    loadPrevNext: false,
+  },
+  // Слежка за видимыми слайдами
+  watchSlidesProgress: true,
+  // Добавление класса видимым слайдам
+  watchSlidesVisibility: true,
 
   // ========== ЗУМ КАРТИНКИ ==========
   // zoom: {
