@@ -1,8 +1,10 @@
 import Swiper, {
-  Navigation, Pagination, Scrollbar, Keyboard, HashNavigation,
-  Mousewheel, Autoplay, EffectFade, EffectFlip, EffectCube, EffectCoverflow,
-  Lazy, Zoom, Thumbs
+  A11y, Autoplay, Controller, EffectCards, EffectCoverflow, EffectCreative,
+  EffectCube, EffectFade, EffectFlip, FreeMode, Grid, HashNavigation, History,
+  Keyboard, Lazy, Manipulation, Mousewheel, Navigation, Pagination, Parallax,
+  Scrollbar, Thumbs, Virtual, Zoom
 } from 'swiper';
+
 
 let myImageSlider = new Swiper('.image-slider', {
   modules: [Navigation, Pagination, Scrollbar, Keyboard, HashNavigation,
@@ -62,7 +64,7 @@ let myImageSlider = new Swiper('.image-slider', {
   keyboard: {
     enabled: true,
     onlyInViewport: true,
-    pageUpDown: true,
+    UpDown: true,
   },
   /* ============================== УПРАВЛЕНИЕ КЛАВИАТУРОЙ ============================== */
 
@@ -288,6 +290,122 @@ let myTextSlider = new Swiper('.image-slider', {
   slidesPerView: 1,
 });
 
-myImageSlider.controller.control = myTextSlider;
-myTextSlider.controller.control = myImageSlider;
+// myImageSlider.controller.control = myTextSlider;
+// myTextSlider.controller.control = myImageSlider;
 /* ============================== ВТОРОЙ ПОДКОНТРОЛЬНЫЙ СЛАЙДЕР ============================== */
+
+/* ============================== CUSTOM SWIPER ============================== */
+let swiperCustomWrapper = document.querySelector('.swiper-custom-wrapper');
+
+let swiperCustom = new Swiper('.swiper-custom', {
+  modules: [Navigation, Pagination, Scrollbar,
+    Keyboard, Mousewheel, Parallax],
+
+  wrapperClass: 'swiper-custom__body',
+  slideClass: 'swiper-custom__screen',
+
+  direction: 'vertical',
+
+  slidesPerView: '1',
+
+  parallax: true,
+
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+    pageUpDown: true,
+  },
+
+  mousewheel: {
+    sensitivity: 1,
+  },
+
+  watchOverflow: true,
+
+  spped: 1000,
+
+  observer: true,
+
+  observeParents: true,
+
+  observeSlideChildren: true,
+
+  pagination: {
+    el: '.swiper-custom__pagination',
+    type: 'bullets',
+    clickable: true,
+    bulletClass: 'swiper-custom__bullet',
+    bulletActiveClass: 'swiper-custom__bullet_active',
+  },
+
+  scrollbar: {
+    el: '.swiper-custom__scroll',
+    draggable: true,
+    dragClass: 'swiper-custom__drag-scroll',
+  },
+
+  init: false,
+
+  on: {
+    init: function () {
+      menuSlider();
+      setScrollType();
+      swiperCustomWrapper.classList.add('_loaded');
+    },
+
+    slideChange: function () {
+      menuSliderRemove();
+      menuLinks[swiperCustom.realIndex].classList.add('_active');
+    },
+
+    resize: function () {
+      setScrollType();
+    }
+  },
+});
+
+let menuLinks = document.querySelectorAll('.sc-header__link');
+
+function menuSlider(params) {
+  if (menuLinks.length > 0) {
+    menuLinks[swiperCustom.realIndex].classList.add('_active');
+    for (let index = 0; index < menuLinks.length; index++) {
+      const menuLink = menuLinks[index];
+      menuLink.addEventListener('click', function (e) {
+        menuSliderRemove();
+        swiperCustom.slideTo(index, 1000);
+        menuLink.classList.add('_active');
+        e.preventDefault();
+      });
+    }
+  }
+}
+
+function menuSliderRemove() {
+  let menuLinkActive = document.querySelector('.sc-header__link._active');
+  if (menuLinkActive) {
+    menuLinkActive.classList.remove('_active');
+  }
+}
+
+function setScrollType() {
+  if (swiperCustomWrapper.classList.contains('_free')) {
+    swiperCustomWrapper.classList.remove('_free');
+    swiperCustom.params.freeMode = false;
+  }
+  for (let index = 0; index < swiperCustom.slides.length; index++) {
+    const pageSlide = swiperCustom.slides[index];
+    const pageSlideContent = pageSlide.querySelector('.screen__content');
+    if (pageSlideContent) {
+      const pageSlideContentHeight = pageSlideContent.offsetHeight;
+      if (pageSlideContentHeight > window.innerHeight) {
+        swiperCustomWrapper.classList.add('_free');
+        swiperCustom.params.freeMode = true;
+        break;
+      }
+    }
+  }
+}
+
+swiperCustom.init();
+/* ============================== CUSTOM SWIPER ============================== */

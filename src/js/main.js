@@ -11,3 +11,5 @@ import "./modules/animscroll.js";
 import "./modules/select.js";
 import "./modules/sending-data.js";
 import "./modules/swiper.js";
+import "./modules/swiper-custom.js";
+import "./modules/burger.js";
