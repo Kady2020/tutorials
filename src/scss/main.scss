@@ -3,7 +3,7 @@
 /*==================== RESET STYLES ====================*/
 
 /*==================== FONTS ====================*/
-@import 'import/fonts.scss';
+@import 'fonts.scss';
 
 // @import url(''); // &subset=cyrillic-ext
 
@@ -19,6 +19,9 @@
 /*==================== VARIABLES ====================*/
 $maxWidthLayout: 1440;
 $maxWidthContainer: 1200;
+$josefinFont: 'Josefin Sans', sans-serif;
+$kaulenFont: 'Koulen', cursive;
+$akronimFont: 'Akronim', cursive;
 $robotoFont: 'Roboto', sans-serif;
 $whiteColor: #fff;
 $blackColor: #000;
@@ -186,5 +189,7 @@ body {
 /*==================== MAGIC NAV ====================*/
 @import 'import/magic-nav.scss';
 
-/*==================== CALC ====================*/
+/*==================== CALCULATOR ====================*/
 @import 'import/calculator.scss';
+
+/*==================== INTRO ====================*/
