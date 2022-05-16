@@ -3213,3 +3213,56 @@ button.swiper-pagination-bullet {
 }
 
 /*==================== INTRO ====================*/
+.intro {
+  line-height: 1.1;
+  background: #464451;
+  padding: 20px 0;
+}
+.intro__body {
+  display: grid;
+  grid-template: 1fr/repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+}
+.intro__item {
+  position: relative;
+}
+.intro__item:hover .intro__logo {
+  opacity: 1;
+  visibility: visible;
+}
+.intro__logo {
+  font-family: "Akronim", cursive;
+  font-size: 40px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  color: #464451;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(100, 194, 158, 0.9);
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s linear;
+}
+@media (max-width: 1200px) {
+  .intro__logo {
+    font-size: calc(20px + 20 * ((100vw - 320px) / 880));
+  }
+}
+.intro__logo span {
+  transform: skew(0deg, -7deg);
+}
+.intro__image {
+  display: block;
+  padding: 0 0 75% 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
